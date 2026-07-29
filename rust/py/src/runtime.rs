@@ -18,7 +18,6 @@ pub struct PythonObjects {
     pub serialize_fn: Py<PyAny>,
     pub handler_wrapper_fn: Py<PyAny>,
     pub non_existence: Py<PyAny>,
-    pub not_set: Py<PyAny>,
 }
 
 impl PythonObjects {
@@ -46,7 +45,6 @@ pub fn init_runtime(
     serialize_fn: Py<PyAny>,
     handler_wrapper_fn: Py<PyAny>,
     non_existence: Py<PyAny>,
-    not_set: Py<PyAny>,
 ) -> PyResult<()> {
     if let Err(_) = pyo3_async_runtimes::tokio::init_with_runtime(get_runtime()) {
         return Err(PyException::new_err(
@@ -59,7 +57,6 @@ pub fn init_runtime(
             serialize_fn,
             handler_wrapper_fn,
             non_existence,
-            not_set,
         }))
         .map_err(|_| PyException::new_err("Failed to set Python objects: already initialized"))?;
     Ok(())

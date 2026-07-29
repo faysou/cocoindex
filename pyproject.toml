@@ -65,8 +65,8 @@ include = ["THIRD_PARTY_NOTICES.html"]
 # Point to the crate within the workspace
 manifest-path = "rust/py/Cargo.toml"
 
-profile = "release"      # wheel / normal builds
-editable-profile = "dev" # local editable builds
+profile = "release"          # wheel / normal builds
+editable-profile = "release" # local editable builds
 
 [project.optional-dependencies]
 litellm = ["litellm>=1.81.0"]
